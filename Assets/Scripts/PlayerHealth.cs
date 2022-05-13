@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public Text playerHealthText;
+    public Text PlayerHealthText;
 
     private int _collisionHealthLoss = 10;
     private int _health;
@@ -15,12 +15,13 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         _health = _startingHealth;
+        PlayerHealthText.text = "Player Health: " + _health;
     }
         
     void OnTriggerEnter(Collider collider)
     {
         _health -= _collisionHealthLoss;
-        playerHealthText.text = "Player Health: " + _health;
+        PlayerHealthText.text = "Player Health: " + _health;
         Destroy(collider.gameObject);
     }
 }

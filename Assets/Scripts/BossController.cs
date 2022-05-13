@@ -7,9 +7,9 @@ public class BossController : MonoBehaviour
     private ProjectileController _projectile;
     private PlayerController _player;
 
-    private float _xMaxSpawn = 5;
+    private float _xMaxSpawn = 10;
     private float _yMaxSpawn = 5;
-    private float _zMaxSpawn = 5;
+    private float _zMaxSpawn = 10;
     
     // Start is called before the first frame update
     void Start()

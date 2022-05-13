@@ -11,7 +11,7 @@ public class ProjectileController : MonoBehaviour
     private PlayerController _player;
     private BossController _boss;
 
-    private float speed = 0.1f;
+    private float speed = 0.07f;
 
     private void Start()
     {

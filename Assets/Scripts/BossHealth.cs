@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class BossHealth :MonoBehaviour
+public class BossHealth : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Text BossHealthText;
+
+    private int _health;
+    private int _startingHealth = 100;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _health = _startingHealth;
+        BossHealthText.text = "Boss Health: " + _health;
     }
 }

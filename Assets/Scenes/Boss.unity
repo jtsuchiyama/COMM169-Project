@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 26117556}
   - component: {fileID: 26117558}
   m_Layer: 0
-  m_Name: XR Origin
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac5fd55c4e432f9469ba6d62e794f66e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealthText: {fileID: 1476839651}
+  PlayerHealthText: {fileID: 1476839651}
 --- !u!65 &26117555
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1941,6 +1941,7 @@ GameObject:
   - component: {fileID: 1838874722}
   - component: {fileID: 1838874721}
   - component: {fileID: 1838874720}
+  - component: {fileID: 1838874725}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -2036,6 +2037,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1838874725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838874719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d30d5a4db9a57164fb9a28f3110bc4d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossHealthText: {fileID: 1064246459}
 --- !u!1 &1869475903
 GameObject:
   m_ObjectHideFlags: 0
