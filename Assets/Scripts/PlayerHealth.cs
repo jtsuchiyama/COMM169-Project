@@ -18,10 +18,20 @@ public class PlayerHealth : MonoBehaviour
         PlayerHealthText.text = "Player Health: " + _health;
     }
         
-    void OnTriggerEnter(Collider collider)
+    void OnColliderEnter(Collider collider)
     {
+        if (collider.gameObject.name == "Projectile (Clone)")
+        {
+            ReduceHealth();
+            Destroy(collider.gameObject);
+        }
+        
+    }
+
+    public void ReduceHealth()
+    {
+        Debug.Log(_health);
         _health -= _collisionHealthLoss;
         PlayerHealthText.text = "Player Health: " + _health;
-        Destroy(collider.gameObject);
     }
 }

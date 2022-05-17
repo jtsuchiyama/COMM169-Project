@@ -16,14 +16,9 @@ public class BossController : MonoBehaviour
     {
         _projectile = FindObjectOfType<ProjectileController>();
         _player = FindObjectOfType<PlayerController>();
-
-        for (int i = 0; i < 10; i++)
-        {
-            SpawnProjectile();
-        }
     }
 
-    void SpawnProjectile()
+    public void SpawnProjectile()
     {
         float x_spawn = Random.Range(-_xMaxSpawn, _xMaxSpawn);
         float y_spawn = Random.Range(0, _yMaxSpawn);
