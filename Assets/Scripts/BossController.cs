@@ -18,13 +18,23 @@ public class BossController : MonoBehaviour
         _player = FindObjectOfType<PlayerController>();
     }
 
-    public void SpawnProjectile()
+    void update()
     {
-        float x_spawn = Random.Range(-_xMaxSpawn, _xMaxSpawn);
-        float y_spawn = Random.Range(0, _yMaxSpawn);
-        float z_spawn = Random.Range(-_zMaxSpawn, _zMaxSpawn);
-        Vector3 spawnPosition = transform.position + new Vector3(x_spawn, y_spawn, z_spawn);
-        Vector3 targetPosition = _player.transform.position;
-        _projectile.Spawn(spawnPosition, targetPosition);
+        transform.LookAt(_player.transform);
     }
+
+    public void SpawnProjectile(int numSpawn)
+    {
+        for (int i = 0; i < numSpawn; i++)
+        {
+            float x_spawn = Random.Range(-_xMaxSpawn, _xMaxSpawn);
+            float y_spawn = Random.Range(0, _yMaxSpawn);
+            float z_spawn = Random.Range(-_zMaxSpawn, _zMaxSpawn);
+            Vector3 spawnPosition = transform.position + new Vector3(x_spawn, y_spawn, z_spawn);
+            Vector3 targetPosition = _player.transform.position;
+            _projectile.Spawn(spawnPosition, targetPosition);
+        }
+        
+    }
+
 }

@@ -7,17 +7,17 @@ public class ProjectileController : MonoBehaviour
 {
     public bool CanPickup = false;
     public bool IsCopy = false;
-    public Vector3 TargetPosition;
+    private Vector3 _targetPosition;
 
     private PlayerController _player;
     private BossController _boss;
 
-    private float speed = 0.07f;
+    private float speed = 0.25f;
 
     private int life = 0;
     private int lifetime = 300;
 
-    private int chancePickup = 4;
+    private int chancePickup = 5;
 
     private void Start()
     {
@@ -29,7 +29,10 @@ public class ProjectileController : MonoBehaviour
     {
         if (IsCopy)
         {
-            transform.position = Vector3.MoveTowards(transform.position, TargetPosition, speed);
+            transform.position = Vector3.MoveTowards(transform.position, _targetPosition, speed);
+            if (transform.position == _targetPosition)
+                Destroy(gameObject);
+
             life++;
             if (life == lifetime)
                 Destroy(gameObject);
@@ -42,14 +45,18 @@ public class ProjectileController : MonoBehaviour
         ProjectileController projectileObjCopy = projectileCopy.GetComponent<ProjectileController>();
 
         projectileObjCopy.transform.position = spawnPosition;
-        projectileObjCopy.TargetPosition = targetPosition;
+
+        // Variation for projectile targeting
+        float randX = Random.Range(-5f, 5f);
+        float randZ = Random.Range(-5f, 5f);
+
+        projectileObjCopy._targetPosition = targetPosition + new Vector3(randX,0,randZ);
 
         projectileObjCopy.IsCopy = true;
         projectileObjCopy.GetComponent<MeshRenderer>().enabled = true;
 
         // Logic for controlling if the projectile can be picked up or not
         int randNum = Random.Range(1, chancePickup+1);
-        Debug.Log(randNum);
         if (randNum == chancePickup)
         {
             projectileObjCopy.CanPickup = true;
@@ -64,6 +71,7 @@ public class ProjectileController : MonoBehaviour
     {
         if (CanPickup == true)
         {
+            FindObjectOfType<BossHealth>().ReduceHealth();
             Destroy(gameObject);
         }
 
