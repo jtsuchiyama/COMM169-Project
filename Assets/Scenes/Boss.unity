@@ -2490,9 +2490,9 @@ MonoBehaviour:
   Dialogue:
     Name: Plastic Elemental
     Sentences:
-    - You cannot end plastic pollution by yourself!
-    - You will never defeat me!
-    - You've bested me today...
+    - YOU cannot end me by YOURSELF!
+    - YOU will never defeat me!
+    - Maybe you can make a difference...
 --- !u!95 &1633250512
 Animator:
   serializedVersion: 3
