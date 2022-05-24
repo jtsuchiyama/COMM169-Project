@@ -8,6 +8,8 @@ public class PlayerHealth : MonoBehaviour
 {
     public Text PlayerHealthText;
 
+    public Text gameLoss;
+
     private int _collisionHealthLoss = 10;
     private int _health;
     private int _startingHealth = 100;
@@ -32,5 +34,11 @@ public class PlayerHealth : MonoBehaviour
     {
         _health -= _collisionHealthLoss;
         PlayerHealthText.text = "Player Health: " + _health;
+
+        if (_health <= 0)
+        {
+            gameLoss.gameObject.SetActive(true);
+            Destroy(FindObjectOfType<BossController>().gameObject);
+        }
     }
 }

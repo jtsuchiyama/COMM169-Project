@@ -17,7 +17,7 @@ public class ProjectileController : MonoBehaviour
     private int life = 0;
     private int lifetime = 300;
 
-    private int chancePickup = 5;
+    private int chancePickup = 6;
 
     private void Start()
     {
